@@ -13,4 +13,4 @@ require (
 	golang.org/x/mod v0.4.2
 )
 
-replace github.com/spdx/spdx-sbom-generator => github.com/amithkk/spdx-sbom-generator v0.0.13-fix-poc
+replace github.com/spdx/spdx-sbom-generator v0.0.13 => github.com/amithkk/spdx-sbom-generator v0.0.13-fix-poc
