@@ -122,7 +122,6 @@ func (f *Format) annotateDocumentWithPackages(modules []models.Module, document 
 			return fmt.Errorf("failed to convert module %w", err)
 		}
 		for _, subMod := range module.Modules {
-			fmt.Printf("Found submodule %s under %s \n", subMod.Name, pkg.PackageName)
 			subPkg, err := f.convertToPackage(*subMod)
 			if err != nil {
 				return fmt.Errorf("failed to convert submodule %w", err)
