@@ -18,7 +18,7 @@ RUN GO111MODULE=on GOFLAGS=-mod=vendor go mod tidy
 RUN GO111MODULE=on GOFLAGS=-mod=vendor CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
     go build -o spdx-sbom-generator ./cmd/generator/generator.go
 
-FROM alpine
+FROM alpine:3.15.4
 ENV USERNAME=spdx-sbom-generator
 # Ruby
 RUN apk add --update ruby && gem install bundler
