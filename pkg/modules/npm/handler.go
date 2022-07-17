@@ -99,7 +99,12 @@ func (m *npm) GetRootModule(path string) (*models.Module, error) {
 		mod.Name = pkResult["name"].(string)
 	}
 	if pkResult["author"] != nil {
-		mod.Supplier.Name = pkResult["author"].(string)
+		authorStruct, ok := pkResult["author"].(map[string]interface{})
+		if !ok {
+			mod.Supplier.Name = pkResult["author"].(string)
+		} else {
+			mod.Supplier.Name = authorStruct["name"].(string)
+		}
 	}
 	if pkResult["version"] != nil {
 		mod.Version = pkResult["version"].(string)
